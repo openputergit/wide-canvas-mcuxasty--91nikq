@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1 2023 Game Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body { background-color: #f5f3ff; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .platform-badge {
+            background: #f0f0f0;
+            border-radius: 20px;
+            padding: 4px 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+            <!-- Header with platforms -->
+            <div class="flex items-center gap-3 p-4 border-b">
+                <i class="bi bi-pc-display text-gray-600"></i>
+                <i class="bi bi-playstation text-gray-600"></i>
+                <i class="bi bi-nintendo-switch text-gray-600"></i>
+            </div>
+
+            <!-- Main content -->
+            <div class="flex flex-col md:flex-row">
+                <!-- Game image -->
+                <div class="md:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1541773367436-1008d27fd0c0?auto=format&fit=crop&q=80" 
+                         alt="F1 23 Game Cover" 
+                         class="w-full h-full object-cover">
+                </div>
+
+                <!-- Game details -->
+                <div class="md:w-1/2 p-6">
+                    <h1 class="text-2xl font-bold mb-4">2023 FIA Formula One World Championship</h1>
+
+                    <!-- Tabs -->
+                    <div class="border-b mb-4">
+                        <div class="flex gap-4">
+                            <button class="tab-btn px-4 py-2 font-medium" data-tab="about">About</button>
+                            <button class="tab-btn px-4 py-2 font-medium" data-tab="information">Information</button>
+                            <button class="tab-btn px-4 py-2 font-medium" data-tab="prices">Prices Summary</button>
+                        </div>
+                    </div>
+
+                    <!-- Tab contents -->
+                    <div id="about" class="tab-content active">
+                        <p class="text-gray-600 mb-4">
+                            The F1® 2023 Championship PS4 key is a digital code that lets you download the game from official 
+                            platforms like PlayStation Store. As of February 16, 2023, this title is not available in the US.
+                        </p>
+                        
+                        <div class="space-y-2 mb-4">
+                            <p><strong>Released Date:</strong> 2023-04-28</p>
+                            <p><strong>Publisher:</strong> CAPCOM Co., Ltd.</p>
+                            <p><strong>User Rating:</strong> ★★★★☆ 4.0/5</p>
+                        </div>
+
+                        <div class="mt-4">
+                            <h3 class="font-medium mb-2">Platforms</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="platform-badge">
+                                    <i class="bi bi-windows"></i>
+                                    Windows
+                                </span>
+                                <span class="platform-badge">
+                                    <i class="bi bi-playstation"></i>
+                                    PS5
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <h3 class="font-medium mb-2">Categories</h3>
+                            <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">Racing</span>
+                        </div>
+                    </div>
+
+                    <div id="information" class="tab-content">
+                        <div class="space-y-4">
+                            <h3 class="font-medium">Technical Information</h3>
+                            <p>Platform: PS4, PS5, Xbox Series X|S, PC</p>
+                            <p>Version: 2023 Edition</p>
+                            <p>File Size: 50GB minimum</p>
+                            <p>Online Features: Multiplayer supported</p>
+                        </div>
+                    </div>
+
+                    <div id="prices" class="tab-content">
+                        <div class="space-y-4">
+                            <h3 class="font-medium">Regional Pricing</h3>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="p-3 bg-gray-50 rounded">
+                                    <p class="font-medium">Standard Edition</p>
+                                    <p class="text-lg">$59.99</p>
+                                </div>
+                                <div class="p-3 bg-gray-50 rounded">
+                                    <p class="font-medium">Deluxe Edition</p>
+                                    <p class="text-lg">$79.99</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all buttons and contents
+                    tabBtns.forEach(b => b.classList.remove('text-blue-600', 'border-b-2', 'border-blue-600'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+
+                    // Add active class to clicked button and corresponding content
+                    btn.classList.add('text-blue-600', 'border-b-2', 'border-blue-600');
+                    const tabId = btn.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+
+            // Set initial active tab
+            tabBtns[0].click();
+        });
+    </script>
+<script>document.body.addEventListener('wheel', e => { if (!e.ctrlKey) return; e.preventDefault(); return }, { passive: false })</script>
+	</body>
+</html>
